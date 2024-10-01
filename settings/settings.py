@@ -31,7 +31,9 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "local_apps.account.apps.AccountConfig",
     "local_apps.emails.apps.EmailsConfig",
-    "local_apps.todo.apps.TodoConfig",
+    "local_apps.core.apps.CoreConfig",
+    "local_apps.main.apps.MainConfig",
+    "local_apps.tasks.apps.TasksConfig",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -133,7 +135,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = "prince.t@inapp.com"
-EMAIL_HOST_PASSWORD = "aqee rtwh qinb zyqm"
+EMAIL_HOST_PASSWORD = "dutzsardxxaewhpa"
 DEFAULT_FROM_EMAIL = "prince.t@inapp.com"
 
 APPEND_SLASH = True
@@ -208,11 +210,10 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
+LOGIN_REDIRECT_URL = '/admin/'
 
-# LOGIN_REDIRECT_URL = '/admin/'
-#
-# CELERY_BROKER_URL = "amqp://localhost:5672"
-# CELERY_RESULT_BACKEND = "redis://localhost:6379"
-# CELERY_ACCEPT_CONTENT = ["application/json"]
-# CELERY_RESULT_SERIALIZER = "json"
-# CELERY_TASK_SERIALIZER = "json"
+CELERY_BROKER_URL = "amqp://localhost:5672"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TASK_SERIALIZER = "json"
